@@ -6,30 +6,40 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Arithmetic operations"
+    return "Hello, world!"
 
 
-@app.route("/summ/<float:x>/<float:y>")
-def summ(x, y):
+@app.route('/name/<s>')
+def show_string(s):
+    print(type(s))
+    return f'Hello, {s}'
+
+
+@app.route('/<x>/<y>/add')
+def add(x, y):
+    x, y = float(x), float(y)
     return f'{x} + {y} = {x + y}'
 
 
-@app.route("/sub/<float:x>/<float:y>")
+@app.route('/<x>/<y>/sub')
 def sub(x, y):
+    x, y = float(x), float(y)
     return f'{x} - {y} = {x - y}'
 
 
-@app.route("/mul/<float:x>/<float:y>")
+@app.route('/<x>/<y>/mul')
 def mul(x, y):
+    x, y = float(x), float(y)
     return f'{x} * {y} = {x * y}'
 
 
-@app.route("/div/<float:x>/<float:y>")
+@app.route('/<x>/<y>/div')
 def div(x, y):
+    x, y = float(x), float(y)
     if y:
         return f'{x} / {y} = {x / y}'
     else:
-        return "Нельзя делить на ноль"
+        "На ноль делить нельзя"
 
 
 if __name__ == "__main__":
