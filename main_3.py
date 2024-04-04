@@ -25,8 +25,10 @@ def calculate(x, y, opp):
         return f"{x} * {y} = {x * y}"
     elif opp == 'div':
         return f"{x} / {y} = {x / y}"
+    elif y:
+        return f"{x} / {y} = {x / y}"
     else:
-        "На ноль делить нельзя!"
+        "Извините, неизвестная операция!"
 
 
 if __name__ == '__main__':
