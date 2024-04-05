@@ -1,5 +1,10 @@
 import requests
 
+res = requests.get("https://jsonplaceholder.typicode.com/posts")
 
-res = requests.get("http://numbersapi.com/<number>/<type>")
-print(res.text)
+if res.status_code == 200:
+    data = res.json()
+    print(data)
+else:
+    print("Ошибка:", res.status_code)
+
